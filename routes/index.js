@@ -7,7 +7,11 @@ module.exports = function (app, nus) {
   app.use('/api/v1', api);
 
   // index route
-  app.route('/').all(function (req, res) {
+  app.route('/').get(function (req, res) {
+    res.redirect(301,'http://www.trovamoda.com');
+  });
+
+  app.route('/shortlink').all(function (req, res) {
     res.render('index');
   });
 
