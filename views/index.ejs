@@ -23,13 +23,14 @@
 
       <form class="form-inline" id="nus">
         <div class="input-group">
-          <input id="link" style="width:500px;" name="long_url" type="text" class="form-control input-lg" placeholder="Paste a link here">
+          <input id="link" style="width:500px;" name="long_url" type="text" class="form-control input-lg" placeholder="Paste long link">
+          <input id="linkShort" style="width:300px;" name="short_url" type="text" class="form-control input-lg" placeholder="Proposed short link">
           <span class="input-group-btn">
             <button class="btn btn-default btn-lg" type="submit">
               <span class="glyphicon glyphicon-link"></span>
               Shorten
             </button>
-            <button class="btn btn-default btn-lg" data-clipboard-target="#link" type="button">
+            <button class="btn btn-default btn-lg" data-clipboard-target="#linkShort" type="button">
               <span class="glyphicon glyphicon-share-alt"></span>
               Copy
             </button>
