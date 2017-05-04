@@ -1,3 +1,5 @@
+var URI = require("urijs");
+
 module.exports = function (app, nus) {
   var opts = app.get('opts')
     , http = require('http')
@@ -5,7 +7,19 @@ module.exports = function (app, nus) {
 
   router.route('/shorten')
     .post(function (req, res) {
-      nus.shorten(req.body['long_url'], req.body['short_url'], function (err, reply) {
+      // Compose long url with utm_*
+      var long_url = req.body['long_url']
+      if(req.body["utm_source"] !== "__notselected__"){
+        long_url = URI(req.body['long_url']).removeQuery("utm_source").removeQuery("utm_medium");
+        if(req.body["utm_source"]){
+          long_url.addQuery("utm_source",req.body["utm_source"])
+        }
+        if(req.body["utm_medium"]){
+          long_url.addQuery("utm_medium",req.body["utm_medium"])
+        }
+        long_url = long_url.toString()
+      }      
+      nus.shorten(long_url, req.body['short_url'], req.body['partners'] || '', function (err, reply) {
         if (err) {
           jsonResponse(res, 500, {status_txt : reply,  status_code : 500});
         } else if (reply) {

@@ -12,17 +12,19 @@
     "url": "http://github.com/dotzero/node-url-shortener"
   },
   "dependencies": {
+    "async": "^2.2",
     "base58": "^0.1.0",
     "body-parser": "^1.15.1",
     "cors": "^2.7.1",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
+    "lodash": "^4.17",
     "method-override": "^2.3.6",
     "morgan": "^1.7.0",
     "redis": "^2.6.0-2",
-    "yargs": "^4.7.1",
-    "async" : "^2.2",
-    "lodash" : "^4.17"
+    "request": "^2.81.0",
+    "urijs": "^1.18.10",
+    "yargs": "^4.7.1"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",

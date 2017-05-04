@@ -25,12 +25,14 @@
           <tr>
             <th>Short Link</th>
             <th>Long Link</th>
+            <th>Partners</th>
             <th>Nclick</th>
           </tr>
           <% urls.forEach(function(o){  %>
             <tr align="left">
               <td><a href="http://trova.moda/analytics/<%= o.hash %>"> http://trova.moda/<%= o.hash %></a></td>
               <td><a href="<%= o.url %>"><%= o.url %></a></td>
+              <td><%= o.partners%></td>
               <td><%= o.clicks%></td>
             </tr>
           <% }) %>
